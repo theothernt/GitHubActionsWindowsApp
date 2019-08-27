@@ -1,2 +1,5 @@
-# GitHubActionsWindowsApp
- A repo for testing with GitHub Actions + Windows Apps
+# GitHub Actions - Windows App
+
+A couple of blank Windows apps for testing out various CI options.
+
+Nothing to see here!
