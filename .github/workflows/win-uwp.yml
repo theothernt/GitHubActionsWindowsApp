@@ -16,15 +16,16 @@ jobs:
       uses: warrenbuckley/Setup-MSBuild@v1
       
     - name: Build
-      run: |
-        REM call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\Common7\Tools\VsDevCmd.bat"
-        msbuild /restore /t:Build /p:AppxBundle=Always /p:UapAppxPackageBuildMode=SideloadOnly /p:Configuration=${BUILD_CONFIGURATION} ${SOLUTION}
-        REM/p:AppxBundlePlatforms="$(buildPlatform)" /p:AppxPackageDir="$(appxPackageDir)" '
       env:
         solution: 'App.UWP/App.UWP.csproj'
         build_configuration: 'Release'
         build_platform: 'x86|x64|ARM'
         appx_package_dir: '$(build.artifactStagingDirectory)\AppxPackages\\'
         app_output_dir: '$(build.artifactStagingDirectory)\App\\'
+      run: |
+        REM call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\Common7\Tools\VsDevCmd.bat"
+        msbuild /restore /t:Build /p:AppxBundle=Always /p:UapAppxPackageBuildMode=SideloadOnly /p:Configuration=$BUILD_CONFIGURATION $SOLUTION
+        REM/p:AppxBundlePlatforms="$(buildPlatform)" /p:AppxPackageDir="$(appxPackageDir)" '
+      
 
         
