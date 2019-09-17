@@ -17,5 +17,5 @@ jobs:
       
     - name: Build
       run: |
-        #call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\Common7\Tools\VsDevCmd.bat"
+        REM call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\Common7\Tools\VsDevCmd.bat"
         msbuild /restore /t:Build /p:Configuration=Release AnotherApp.WPF/AnotherApp.WPF.csproj
