@@ -24,8 +24,8 @@ jobs:
         app_output_dir: '$(build.artifactStagingDirectory)\App\\'
       run: |
         REM call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\Common7\Tools\VsDevCmd.bat"
-        msbuild /restore /t:Build /p:AppxBundle=Always /p:UapAppxPackageBuildMode=SideloadOnly /p:Configuration=$BUILD_CONFIGURATION $SOLUTION
-        REM/p:AppxBundlePlatforms="$(buildPlatform)" /p:AppxPackageDir="$(appxPackageDir)" '
+        msbuild /restore /t:Build /p:AppxBundle=Always /p:UapAppxPackageBuildMode=SideloadOnly /p:Configuration=${BUILD_CONFIGURATION} App.UWP/App.UWP.csproj
+        REM /p:AppxBundlePlatforms="$(buildPlatform)" /p:AppxPackageDir="$(appxPackageDir)" '
       
 
         
