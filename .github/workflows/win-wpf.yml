@@ -1,0 +1,22 @@
+name: CI WPF
+
+on:
+  push:
+    branches:
+    - master
+      
+jobs:
+  build:
+    steps:
+    - name: Checkout latest
+      uses: actions/checkout@v1
+
+    - name: Setup Visual Studio Command Prompt
+      uses: warrenbuckley/Setup-MSBuild@v1
+
+    - name: Build
+      run: |
+        msbuild /restore /t:Build /p:Configuration=Release AnotherApp.WPF/AnotherApp.WPF.csproj
+
+    #- name: Tests
+      #run: |
