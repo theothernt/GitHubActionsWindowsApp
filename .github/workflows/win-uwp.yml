@@ -20,12 +20,13 @@ jobs:
         SOLUTION: 'App.UWP/App.UWP.csproj'
         BUILD_CONFIG: 'Release'
         BUILD_PLATFORM: 'x86|x64|ARM'
-        APPX_DIR: '$(build.artifactStagingDirectory)\AppxPackages\\'
+        APPX_DIR: 'App.UWP/AppxPackages'
         OUTPUT_DIR: '$(build.artifactStagingDirectory)\App\\'
       run: |
         REM call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\Common7\Tools\VsDevCmd.bat"
-        msbuild /restore /t:Build /p:AppxBundle=Always /p:UapAppxPackageBuildMode=SideloadOnly /p:Configuration=Release %SOLUTION%
-        REM /p:AppxBundlePlatforms="$(buildPlatform)" /p:AppxPackageDir="$(appxPackageDir)" '
+        msbuild /restore /t:Build /p:AppxBundle=Always /p:UapAppxPackageBuildMode=SideloadOnly /p:AppxBundlePlatforms=%BUILD_PLATFORM% /p:AppxPackageDir=%APPX_DIR% /p:Configuration=%BUILD_CONFIG% %SOLUTION%
+        
+     
       
 
         
