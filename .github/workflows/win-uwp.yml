@@ -20,7 +20,7 @@ jobs:
         SOLUTION: 'App.UWP/App.UWP.csproj'
         BUILD_CONFIG: 'Release'
         BUILD_PLATFORM: 'x86|x64|ARM'
-        APPX_PARAMS: '/p:AppxBundle=Always /p:UapAppxPackageBuildMode=SideloadOnly /p:AppxBundlePlatforms="${%BUILD_PLATFORM%}" /p:AppxPackageDir=${%APPX_DIR%}'
+        APPX_PARAMS: '/p:AppxBundle=Always /p:UapAppxPackageBuildMode=SideloadOnly /p:AppxBundlePlatforms="${{ %BUILD_PLATFORM% }}" /p:AppxPackageDir=${{ %APPX_DIR% }}'
         APPX_DIR: 'App.UWP/AppxPackages'
       run: |
         REM call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\Common7\Tools\VsDevCmd.bat"
