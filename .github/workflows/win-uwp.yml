@@ -24,6 +24,7 @@ jobs:
         APPX_DIR: 'App.UWP/AppxPackages'
       run: |
         REM call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\Common7\Tools\VsDevCmd.bat"
+        echo msbuild /restore /t:Build %APPX_PARAMS% /p:Configuration=%BUILD_CONFIG% %SOLUTION%
         msbuild /restore /t:Build %APPX_PARAMS% /p:Configuration=%BUILD_CONFIG% %SOLUTION%
         
     - name: Archive app binary
